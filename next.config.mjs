@@ -1,4 +1,4 @@
-import { setupNextOnPages } from "@cloudflare/next-on-pages/setup";
+import { setupNextOnPages } from "@cloudflare/next-on-pages";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
