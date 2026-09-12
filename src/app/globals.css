@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mystical-dark: #0F0A1A;
+  --mystical-purple: #7C3AED;
+  --mystical-gold: #F59E0B;
+  --mystical-card: #1A1225;
+  --mystical-border: #2D1F3D;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #0F0A1A 0%, #1A1225 50%, #0F0A1A 100%);
+  min-height: 100vh;
+  color: #E2E8F0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mystical-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mystical-purple);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mystical-gold);
+}
+
+/* Mystical glow effects */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5), 0 0 40px rgba(124, 58, 237, 0.3);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.3);
+}
+
+/* Card hover effects */
+.mystical-card {
+  background: linear-gradient(145deg, #1A1225 0%, #0F0A1A 100%);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  transition: all 0.3s ease;
+}
+
+.mystical-card:hover {
+  border-color: rgba(124, 58, 237, 0.6);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #7C3AED 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.btn-mystical {
+  background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.btn-mystical:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+.btn-mystical:active {
+  transform: translateY(0);
+}
+
+/* Star background animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(124, 58, 237, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 120px, rgba(245, 158, 11, 0.6), transparent),
+    radial-gradient(1px 1px at 230px 80px, #eee, transparent),
+    radial-gradient(2px 2px at 300px 150px, rgba(124, 58, 237, 0.8), transparent),
+    radial-gradient(1px 1px at 370px 50px, #fff, transparent),
+    radial-gradient(2px 2px at 450px 180px, rgba(245, 158, 11, 0.6), transparent);
+  background-repeat: repeat;
+  background-size: 500px 200px;
+  animation: twinkle 5s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid rgba(124, 58, 237, 0.3);
+  border-top-color: #7C3AED;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tarot card flip animation */
+.tarot-card {
+  perspective: 1000px;
+}
+
+.tarot-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.tarot-card.flipped .tarot-card-inner {
+  transform: rotateY(180deg);
+}
+
+.tarot-card-front, .tarot-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+.tarot-card-back {
+  transform: rotateY(180deg);
+}
