@@ -1,3 +1,5 @@
+import { setupNextOnPages } from "@cloudflare/next-on-pages/setup";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -5,5 +7,7 @@ const nextConfig = {
     unoptimized: true,
   },
 };
+
+setupNextOnPages(nextConfig);
 
 export default nextConfig;
